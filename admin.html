@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>토브리치 챌린지 관리자</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;background:#f5f6fb;color:#202124}.wrap{max-width:1200px;margin:auto;padding:28px 20px 60px}.hero{display:flex;justify-content:space-between;gap:20px;align-items:center;background:linear-gradient(135deg,#4037b9,#7967ff);color:#fff;border-radius:24px;padding:28px 30px}.hero h1{margin:0 0 6px;font-size:30px}.hero p{margin:0;opacity:.9}.badge{background:rgba(255,255,255,.16);padding:10px 14px;border-radius:999px;font-weight:800}.grid{display:grid;grid-template-columns:340px 1fr;gap:20px;margin-top:20px}.card{background:#fff;border:1px solid #e7e8ef;border-radius:20px;padding:22px;box-shadow:0 8px 24px rgba(30,30,60,.05)}h2{margin:0 0 18px;font-size:21px}.field{margin-bottom:16px}.field label{display:block;font-weight:800;font-size:14px;margin-bottom:7px}.input,.textarea,.select{width:100%;border:1px solid #dcddea;border-radius:12px;padding:12px 13px;font:inherit;background:#fff}.textarea{min-height:92px;resize:vertical}.duration{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.duration button{border:1px solid #d9d9e8;background:#fff;padding:11px 6px;border-radius:12px;font-weight:800;cursor:pointer}.duration button.active{background:#6555e8;color:#fff;border-color:#6555e8}.btn{border:0;background:#6555e8;color:white;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}.btn.secondary{background:#eef0f6;color:#333}.btn.danger{background:#fff0f0;color:#c43a3a}.actions{display:flex;gap:9px;flex-wrap:wrap}.daylist{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:18px}.daybtn{border:1px solid #dedfec;background:#fff;border-radius:12px;padding:11px 8px;font-weight:800;cursor:pointer}.daybtn.active{background:#f0edff;color:#5746d8;border-color:#7d70ef}.editor-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.small{font-size:13px;color:#767676;line-height:1.55}.status{padding:12px 14px;border-radius:12px;background:#f6f4ff;color:#5544cf;font-weight:700;margin-top:14px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.summary .box{background:#f8f8fc;border-radius:14px;padding:14px}.num{font-size:26px;font-weight:900;color:#6555e8}.section{margin-top:20px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px 10px;border-bottom:1px solid #eee;text-align:left;font-size:14px}.pill{display:inline-block;padding:6px 9px;border-radius:999px;background:#fff5dc;color:#8b6511;font-weight:800;font-size:12px}.notice{background:#fffbe9;border:1px solid #f1dda0;border-radius:14px;padding:14px 16px;margin-top:16px;color:#735d16;font-size:14px;line-height:1.6}@media(max-width:850px){.grid{grid-template-columns:1fr}.daylist{grid-template-columns:repeat(3,1fr)}.summary{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body><main class="wrap">
+<section class="hero"><div><h1>토브리치 챌린지 관리자</h1><p>챌린지 기간과 DAY별 콘텐츠를 미리 준비하는 관리자 화면입니다.</p></div><div class="badge">ADMIN · 1단계</div></section>
+<div class="notice"><strong>현재 단계:</strong> 관리자 화면과 설정 기능을 먼저 구축했습니다. 이 버전은 같은 브라우저에 저장되는 테스트 단계이며, 참가자 로그인·관리자 승인·여러 기기 간 데이터 공유는 다음 단계에서 Supabase DB를 연결해 실제 운영형으로 전환합니다.</div>
+<div class="grid">
+<section class="card">
+<h2>챌린지 기본 설정</h2>
+<div class="field"><label>챌린지명</label><input id="challengeName" class="input" value="토브리치 미리캔버스 요소 제작 챌린지"></div>
+<div class="field"><label>시작일</label><input id="startDate" class="input" type="date"></div>
+<div class="field"><label>기간</label><div class="duration" id="durationBtns"><button data-days="10" class="active">10일</button><button data-days="20">20일</button><button data-days="30">30일</button></div></div>
+<div class="field"><label>참가자 화면 안내문</label><textarea id="intro" class="textarea">매일 요소를 만들고 인증 이미지 1장을 업로드해 챌린지를 완료하세요.</textarea></div>
+<div class="actions"><button class="btn" id="saveBasic">기본 설정 저장</button><button class="btn secondary" id="resetBasic">초기화</button></div>
+<div class="summary"><div class="box"><div class="small">운영 기간</div><div class="num"><span id="durationStat">10</span>일</div></div><div class="box"><div class="small">준비된 DAY</div><div class="num"><span id="readyStat">0</span></div></div><div class="box"><div class="small">승인 대기</div><div class="num">0</div></div></div>
+</section>
+<section class="card">
+<div class="editor-head"><h2>DAY별 콘텐츠 관리</h2><span class="small">관리자가 검수한 미리캔버스 키워드를 직접 등록</span></div>
+<div class="daylist" id="dayList"></div>
+<div class="field"><label>주제</label><input id="dayTitle" class="input" placeholder="예: 가을 단풍 요소"></div>
+<div class="field"><label>설명</label><textarea id="dayDesc" class="textarea" placeholder="참가자에게 보여줄 제작 안내"></textarea></div>
+<div class="field"><label>추천 스타일</label><input id="dayStyles" class="input" placeholder="예: 3D 블렌더, 플랫 일러스트, 아이콘형"></div>
+<div class="field"><label>미리캔버스 실제 키워드</label><textarea id="dayKeywords" class="textarea" placeholder="미리캔버스에서 확인한 키워드를 쉼표로 구분해 입력"></textarea></div>
+<div class="field"><label>참고 이미지 메모</label><input id="dayImageMemo" class="input" placeholder="예: 미리캔버스 검색 상위 요소 캡처 3장"></div>
+<div class="actions"><button class="btn" id="saveDay">이 DAY 저장</button><button class="btn secondary" id="copyPrev">이전 DAY 복사</button><button class="btn danger" id="clearDay">DAY 내용 삭제</button></div>
+<div class="status" id="saveStatus">DAY 1을 편집하고 있습니다.</div>
+</section>
+</div>
+<section class="card section"><div class="editor-head"><h2>참가자 승인 관리</h2><span class="pill">다음 단계에서 DB 연결</span></div><table class="table"><thead><tr><th>참가자</th><th>이메일</th><th>가입일</th><th>상태</th><th>관리</th></tr></thead><tbody><tr><td colspan="5" class="small">Supabase 인증 연결 후 가입 신청자가 이곳에 표시되고, 관리자가 승인/승인취소/이용정지를 할 수 있게 됩니다.</td></tr></tbody></table></section>
+</main>
+<script>
+const defaultConfig={name:'토브리치 미리캔버스 요소 제작 챌린지',startDate:'',duration:10,intro:'매일 요소를 만들고 인증 이미지 1장을 업로드해 챌린지를 완료하세요.',days:{}};
+let config=JSON.parse(localStorage.getItem('adminChallengeConfig')||'null')||structuredClone(defaultConfig);let selectedDay=1;
+const $=id=>document.getElementById(id);
+function persist(){localStorage.setItem('adminChallengeConfig',JSON.stringify(config));}
+function renderBasic(){$('challengeName').value=config.name;$('startDate').value=config.startDate||'';$('intro').value=config.intro;document.querySelectorAll('#durationBtns button').forEach(b=>b.classList.toggle('active',Number(b.dataset.days)===config.duration));$('durationStat').textContent=config.duration;renderDays();updateReady();}
+function renderDays(){const list=$('dayList');list.innerHTML='';for(let i=1;i<=config.duration;i++){const b=document.createElement('button');b.className='daybtn'+(i===selectedDay?' active':'');b.textContent='DAY '+i;b.onclick=()=>{selectedDay=i;renderDays();loadDay();};list.appendChild(b);}if(selectedDay>config.duration)selectedDay=config.duration;}
+function loadDay(){const d=config.days[selectedDay]||{};$('dayTitle').value=d.title||'';$('dayDesc').value=d.desc||'';$('dayStyles').value=d.styles||'';$('dayKeywords').value=d.keywords||'';$('dayImageMemo').value=d.imageMemo||'';$('saveStatus').textContent=`DAY ${selectedDay}을 편집하고 있습니다.`;}
+function updateReady(){let n=0;for(let i=1;i<=config.duration;i++){const d=config.days[i];if(d&&d.title&&d.keywords)n++;}$('readyStat').textContent=n;}
+document.querySelectorAll('#durationBtns button').forEach(b=>b.onclick=()=>{config.duration=Number(b.dataset.days);if(selectedDay>config.duration)selectedDay=config.duration;renderBasic();loadDay();});
+$('saveBasic').onclick=()=>{config.name=$('challengeName').value.trim()||defaultConfig.name;config.startDate=$('startDate').value;config.intro=$('intro').value.trim();persist();renderBasic();$('saveStatus').textContent='기본 설정을 저장했습니다.';};
+$('resetBasic').onclick=()=>{if(!confirm('기본 설정을 초기화할까요? DAY별 내용은 유지됩니다.'))return;config.name=defaultConfig.name;config.startDate='';config.duration=10;config.intro=defaultConfig.intro;persist();renderBasic();loadDay();};
+$('saveDay').onclick=()=>{config.days[selectedDay]={title:$('dayTitle').value.trim(),desc:$('dayDesc').value.trim(),styles:$('dayStyles').value.trim(),keywords:$('dayKeywords').value.trim(),imageMemo:$('dayImageMemo').value.trim()};persist();updateReady();$('saveStatus').textContent=`DAY ${selectedDay} 저장 완료 ✓`;};
+$('copyPrev').onclick=()=>{if(selectedDay===1)return alert('DAY 1에는 이전 DAY가 없습니다.');const prev=config.days[selectedDay-1];if(!prev)return alert('이전 DAY에 저장된 내용이 없습니다.');config.days[selectedDay]=structuredClone(prev);persist();loadDay();updateReady();$('saveStatus').textContent=`DAY ${selectedDay-1} 내용을 DAY ${selectedDay}에 복사했습니다.`;};
+$('clearDay').onclick=()=>{if(!confirm(`DAY ${selectedDay} 내용을 삭제할까요?`))return;delete config.days[selectedDay];persist();loadDay();updateReady();};
+renderBasic();loadDay();
+</script></body></html>
