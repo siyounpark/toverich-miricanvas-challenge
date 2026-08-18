@@ -1,92 +1,93 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>토브리치 미리캔버스 요소 챌린지</title>
-  <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;background:#f7f8fc;color:#222}.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 60px}.hero{background:linear-gradient(135deg,#6c5ce7,#8e7dff);color:#fff;border-radius:28px;padding:34px;box-shadow:0 14px 35px rgba(86,72,190,.22)}.hero h1{margin:0 0 8px;font-size:34px}.hero p{margin:0;opacity:.92}.topgrid{display:grid;grid-template-columns:1.4fr .6fr;gap:18px;margin-top:20px}.card{background:#fff;border:1px solid #e9e9f3;border-radius:22px;padding:24px;box-shadow:0 8px 24px rgba(28,28,60,.06)}.label{font-size:13px;font-weight:700;color:#6c5ce7;margin-bottom:8px}.challenge-title{font-size:30px;font-weight:800;margin:0 0 8px}.muted{color:#777;line-height:1.65}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.chip{background:#f1efff;color:#5143b7;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:700}.keyword-box{margin-top:16px;background:#fafaff;border:1px dashed #cfc8ff;padding:18px;border-radius:16px;line-height:1.8}.btn{appearance:none;border:0;background:#6c5ce7;color:#fff;padding:13px 18px;border-radius:14px;font-weight:800;cursor:pointer}.btn.secondary{background:#eef0f5;color:#333}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.progress{height:14px;background:#ececf2;border-radius:999px;overflow:hidden;margin-top:12px}.bar{height:100%;background:#6c5ce7;width:0%;transition:.3s}.days{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:18px}.day{background:#fff;border:1px solid #e7e7ef;border-radius:18px;padding:15px;text-align:center;cursor:pointer}.day.done{border-color:#6c5ce7;background:#f3f1ff}.day .num{font-weight:900;font-size:20px}.small{font-size:13px;color:#777}.section-title{margin:34px 0 14px;font-size:22px}.note{width:100%;min-height:110px;border:1px solid #ddddea;border-radius:14px;padding:14px;font:inherit;resize:vertical}.name-input{width:100%;border:1px solid #ddddea;border-radius:14px;padding:13px 14px;font:inherit}.stat{font-size:34px;font-weight:900;color:#6c5ce7;margin:8px 0}.footer{text-align:center;color:#999;font-size:13px;margin-top:30px}@media(max-width:760px){.topgrid{grid-template-columns:1fr}.days{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:28px}.challenge-title{font-size:25px}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>토브리치 미리캔버스 요소 챌린지</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;background:#f7f8fc;color:#222}.wrap{max-width:1100px;margin:0 auto;padding:32px 20px 60px}.hero{background:linear-gradient(135deg,#6c5ce7,#8e7dff);color:#fff;border-radius:28px;padding:34px;box-shadow:0 14px 35px rgba(86,72,190,.22)}.hero h1{margin:0 0 8px;font-size:34px}.hero p{margin:0;opacity:.92}.topgrid{display:grid;grid-template-columns:1.45fr .55fr;gap:18px;margin-top:20px}.card{background:#fff;border:1px solid #e9e9f3;border-radius:22px;padding:24px;box-shadow:0 8px 24px rgba(28,28,60,.06)}.label{font-size:13px;font-weight:800;color:#6c5ce7;margin-bottom:8px}.challenge-title{font-size:30px;font-weight:800;margin:0 0 8px}.muted{color:#777;line-height:1.65}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.chip{background:#f1efff;color:#5143b7;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:700}.keyword-box{margin-top:16px;background:#fafaff;border:1px dashed #cfc8ff;padding:18px;border-radius:16px;line-height:1.8}.btn{appearance:none;border:0;background:#6c5ce7;color:#fff;padding:13px 18px;border-radius:14px;font-weight:800;cursor:pointer}.btn.secondary{background:#eef0f5;color:#333}.btn:disabled{opacity:.45;cursor:not-allowed}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.progress{height:14px;background:#ececf2;border-radius:999px;overflow:hidden;margin-top:12px}.bar{height:100%;background:#6c5ce7;width:0%;transition:.3s}.days{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:18px}.day{background:#fff;border:1px solid #e7e7ef;border-radius:18px;padding:15px;text-align:center;cursor:pointer}.day.done{border-color:#6c5ce7;background:#f3f1ff}.day .num{font-weight:900;font-size:20px}.small{font-size:13px;color:#777}.section-title{margin:34px 0 14px;font-size:22px}.note{width:100%;min-height:110px;border:1px solid #ddddea;border-radius:14px;padding:14px;font:inherit;resize:vertical}.name-input,.count-input{width:100%;border:1px solid #ddddea;border-radius:14px;padding:13px 14px;font:inherit}.stat{font-size:34px;font-weight:900;color:#6c5ce7;margin:8px 0}.footer{text-align:center;color:#999;font-size:13px;margin-top:30px}.upload-card{margin-top:18px;border:1px solid #e2defd;background:#fbfaff;border-radius:18px;padding:18px}.upload-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}.count-wrap{width:190px}.count-wrap label{display:block;font-weight:800;font-size:13px;margin-bottom:7px}.upload-stat{font-weight:900;color:#6c5ce7;font-size:18px}.dropzone{margin-top:14px;border:2px dashed #c9c1ff;border-radius:16px;padding:22px;text-align:center;background:#fff;cursor:pointer}.dropzone strong{color:#5b4ce5}.dropzone input{display:none}.previews{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.thumb{position:relative;aspect-ratio:1;background:#eee;border-radius:14px;overflow:hidden;border:1px solid #e1e1ea}.thumb img{width:100%;height:100%;object-fit:cover}.thumb button{position:absolute;right:6px;top:6px;border:0;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.68);color:#fff;cursor:pointer}.requirement{margin-top:12px;padding:11px 13px;border-radius:12px;background:#fff4e5;color:#925d00;font-size:13px;font-weight:700}.requirement.ok{background:#eefbef;color:#287a32}.mini-stat{margin-top:18px;padding-top:18px;border-top:1px solid #eee}.mini-stat strong{font-size:22px;color:#6c5ce7}.hint{font-size:12px;color:#888;margin-top:8px;line-height:1.5}@media(max-width:760px){.topgrid{grid-template-columns:1fr}.days{grid-template-columns:repeat(2,1fr)}.previews{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:28px}.challenge-title{font-size:25px}.count-wrap{width:100%}}
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <h1>토브리치 미리캔버스 요소 제작 챌린지</h1>
-      <p>매일 하나씩 만들고, 키워드까지 정리하며 나만의 요소 포트폴리오를 쌓아보세요.</p>
-    </section>
-
-    <div class="topgrid">
-      <section class="card">
-        <div class="label">TODAY'S CHALLENGE</div>
-        <h2 class="challenge-title" id="todayTitle">오늘의 요소 만들기</h2>
-        <p class="muted" id="todayDesc"></p>
-        <div class="chips" id="styleChips"></div>
-        <div class="keyword-box"><strong>미리캔버스 검색 키워드</strong><br><span id="keywords"></span></div>
-        <div class="actions">
-          <button class="btn" id="completeBtn">오늘 챌린지 완료</button>
-          <button class="btn secondary" id="copyBtn">키워드 복사</button>
-        </div>
-      </section>
-
-      <aside class="card">
-        <div class="label">MY PROGRESS</div>
-        <input class="name-input" id="nameInput" placeholder="참가자 이름" />
-        <div class="stat"><span id="doneCount">0</span>/10</div>
-        <div class="small">완료한 챌린지</div>
-        <div class="progress"><div class="bar" id="progressBar"></div></div>
-        <p class="muted" id="cheer">첫 번째 요소부터 시작해보세요!</p>
-      </aside>
-    </div>
-
-    <h3 class="section-title">10일 챌린지 일정</h3>
-    <section class="days" id="days"></section>
-
-    <h3 class="section-title">오늘의 작업 메모</h3>
-    <section class="card">
-      <textarea class="note" id="note" placeholder="만든 요소의 특징, 수정할 점, 업로드 아이디어 등을 적어보세요."></textarea>
-      <div class="actions"><button class="btn secondary" id="saveNote">메모 저장</button></div>
-    </section>
-
-    <div class="footer">TOVERICH · Miricanvas Contributor Challenge</div>
-  </main>
-
+<main class="wrap">
+<section class="hero"><h1>토브리치 미리캔버스 요소 제작 챌린지</h1><p>매일 요소를 만들고, 제작 이미지를 인증하며 나만의 요소 포트폴리오를 쌓아보세요.</p></section>
+<div class="topgrid">
+<section class="card">
+<div class="label">TODAY'S CHALLENGE</div>
+<h2 class="challenge-title" id="todayTitle"></h2>
+<p class="muted" id="todayDesc"></p>
+<div class="chips" id="styleChips"></div>
+<div class="keyword-box"><strong>미리캔버스 검색 키워드</strong><br><span id="keywords"></span></div>
+<div class="upload-card">
+<div class="upload-head">
+<div><div class="label">UPLOAD MISSION</div><div class="upload-stat">업로드 <span id="uploadedCount">0</span> / 목표 <span id="targetView">1</span>개</div></div>
+<div class="count-wrap"><label for="targetCount">오늘 제작할 요소 개수</label><input class="count-input" id="targetCount" type="number" min="1" max="50" value="1"></div>
+</div>
+<label class="dropzone" for="imageInput"><strong>+ 제작 이미지 업로드</strong><br><span class="small">PNG, JPG, WEBP · 여러 장 선택 가능</span><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp" multiple></label>
+<div class="previews" id="previews"></div>
+<div class="requirement" id="requirement">이미지를 업로드해야 챌린지를 완료할 수 있어요.</div>
+<div class="hint">업로드한 이미지는 이 브라우저에 저장됩니다. 다른 기기에서는 별도로 업로드해야 합니다.</div>
+</div>
+<div class="actions"><button class="btn" id="completeBtn" disabled>이미지 업로드 후 완료</button><button class="btn secondary" id="copyBtn">키워드 복사</button></div>
+</section>
+<aside class="card">
+<div class="label">MY PROGRESS</div>
+<input class="name-input" id="nameInput" placeholder="참가자 이름" />
+<div class="stat"><span id="doneCount">0</span>/10</div><div class="small">완료한 챌린지</div><div class="progress"><div class="bar" id="progressBar"></div></div><p class="muted" id="cheer"></p>
+<div class="mini-stat"><div class="small">현재 DAY 업로드</div><strong><span id="sideUploadCount">0</span>개</strong></div>
+<div class="mini-stat"><div class="small">10일 누적 인증 이미지</div><strong><span id="totalUploadCount">0</span>개</strong></div>
+</aside>
+</div>
+<h3 class="section-title">10일 챌린지 일정</h3><section class="days" id="days"></section>
+<h3 class="section-title">오늘의 작업 메모</h3><section class="card"><textarea class="note" id="note" placeholder="만든 요소의 특징, 수정할 점, 업로드 아이디어 등을 적어보세요."></textarea><div class="actions"><button class="btn secondary" id="saveNote">메모 저장</button></div></section>
+<div class="footer">TOVERICH · Miricanvas Contributor Challenge</div>
+</main>
 <script>
 const challenges=[
- {title:'가을 단풍 요소',desc:'단풍잎, 은행잎, 도토리를 한 가지 통일된 스타일로 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','감성 스티커'],keywords:['단풍','가을','단풍잎','은행잎','도토리','가을소품','가을장식','낙엽','계절','가을감성','추석','자연','식물','나뭇잎','오렌지','노랑','브라운','가을디자인','포스터요소','카드뉴스','스티커','꾸미기','감성','시즌','미리캔버스']},
- {title:'카페 디저트 요소',desc:'크루아상, 마카롱, 케이크 중 하나를 선택해 보기 좋은 단품 요소로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','말랑한 3D'],keywords:['카페','디저트','크루아상','빵','베이커리','마카롱','케이크','간식','브런치','커피','홈카페','달콤한','음식','푸드','카페메뉴','디저트카페','베이킹','귀여운','3D요소','일러스트','아이콘','메뉴판','포스터','감성','미리캔버스']},
- {title:'김장 준비 요소',desc:'배추, 고춧가루, 고무장갑, 김치통처럼 김장을 연상시키는 요소를 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','리얼리틱 3D'],keywords:['김장','김치','배추','고춧가루','고무장갑','김치통','겨울준비','전통음식','한식','한국음식','요리','식재료','채소','배추김치','주방','반찬','겨울','가정','시골','전통','음식요소','요리요소','포스터','스티커','미리캔버스']},
- {title:'겨울 방한용품 요소',desc:'목도리, 장갑, 귀마개, 털모자 등 겨울 소품을 시리즈로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','포근한 니트'],keywords:['겨울','방한용품','목도리','장갑','귀마개','털모자','겨울소품','추위','보온','니트','겨울패션','시즌','눈','따뜻한','포근한','의류','액세서리','겨울준비','크리스마스','연말','겨울디자인','카드뉴스','스티커','아이콘','미리캔버스']},
- {title:'크리스마스 장식 요소',desc:'트리, 오너먼트, 리본, 선물상자를 한 세트처럼 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','글로시 3D'],keywords:['크리스마스','트리','오너먼트','리본','선물','선물상자','산타','연말','겨울','장식','데코','파티','홀리데이','별','눈송이','성탄절','크리스마스소품','축하','이벤트','포스터','배너','카드','스티커','시즌','미리캔버스']},
- {title:'새해 다이어리 요소',desc:'달력, 체크리스트, 펜, 스티커를 활용한 계획 세우기 요소를 만들어보세요.',styles:['플랫 일러스트','아이콘형','3D 블렌더','문구 스티커'],keywords:['새해','다이어리','달력','플래너','체크리스트','펜','스티커','계획','목표','신년','일정','메모','문구','공부','업무','루틴','습관','기록','투두리스트','캘린더','정리','아이콘','카드뉴스','꾸미기','미리캔버스']},
- {title:'봄꽃 요소',desc:'벚꽃, 민들레, 제비꽃 중 하나를 선택해 봄 느낌의 단품 요소로 만들어보세요.',styles:['수채화풍','플랫 일러스트','3D 블렌더','감성 스티커'],keywords:['봄','봄꽃','벚꽃','민들레','제비꽃','꽃','식물','자연','봄소품','봄감성','파스텔','꽃잎','정원','피크닉','시즌','봄디자인','포스터','카드','축제','꽃축제','일러스트','스티커','꾸미기','감성','미리캔버스']},
- {title:'여름 과일 요소',desc:'수박, 복숭아, 레몬을 시원하고 선명한 분위기로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','상큼한 스티커'],keywords:['여름','과일','수박','복숭아','레몬','여름과일','시원한','상큼한','주스','음료','과일주스','피크닉','휴가','바캉스','시즌','푸드','음식','컬러풀','여름디자인','포스터','메뉴판','스티커','아이콘','감성','미리캔버스']},
- {title:'여행 준비 요소',desc:'캐리어, 여권, 카메라, 선글라스를 여행 세트처럼 구성해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','트래블 스티커'],keywords:['여행','캐리어','여권','카메라','선글라스','여행용품','휴가','관광','해외여행','국내여행','비행기','바캉스','트립','여행준비','짐싸기','여행소품','여름휴가','지도','여행일정','포스터','카드뉴스','스티커','아이콘','감성','미리캔버스']},
- {title:'감사 카드 요소',desc:'꽃, 리본, 하트, 작은 선물 등 감사의 마음을 표현할 요소를 만들어보세요.',styles:['감성 일러스트','플랫 일러스트','3D 블렌더','수채화 스티커'],keywords:['감사','고마움','감사카드','꽃','리본','하트','선물','축하','마음','메시지','카드','기념일','어버이날','스승의날','감성','따뜻한','사랑','선물포장','꽃다발','인사','포스터','카드뉴스','스티커','꾸미기','미리캔버스']}
+{title:'가을 단풍 요소',desc:'단풍잎, 은행잎, 도토리를 한 가지 통일된 스타일로 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','감성 스티커'],keywords:['단풍','가을','단풍잎','은행잎','도토리','가을소품','가을장식','낙엽','계절','가을감성','추석','자연','식물','나뭇잎','오렌지','노랑','브라운','가을디자인','포스터요소','카드뉴스','스티커','꾸미기','감성','시즌','미리캔버스']},
+{title:'카페 디저트 요소',desc:'크루아상, 마카롱, 케이크 중 하나를 선택해 보기 좋은 단품 요소로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','말랑한 3D'],keywords:['카페','디저트','크루아상','빵','베이커리','마카롱','케이크','간식','브런치','커피','홈카페','달콤한','음식','푸드','카페메뉴','디저트카페','베이킹','귀여운','3D요소','일러스트','아이콘','메뉴판','포스터','감성','미리캔버스']},
+{title:'김장 준비 요소',desc:'배추, 고춧가루, 고무장갑, 김치통처럼 김장을 연상시키는 요소를 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','리얼리틱 3D'],keywords:['김장','김치','배추','고춧가루','고무장갑','김치통','겨울준비','전통음식','한식','한국음식','요리','식재료','채소','배추김치','주방','반찬','겨울','가정','시골','전통','음식요소','요리요소','포스터','스티커','미리캔버스']},
+{title:'겨울 방한용품 요소',desc:'목도리, 장갑, 귀마개, 털모자 등 겨울 소품을 시리즈로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','포근한 니트'],keywords:['겨울','방한용품','목도리','장갑','귀마개','털모자','겨울소품','추위','보온','니트','겨울패션','시즌','눈','따뜻한','포근한','의류','액세서리','겨울준비','크리스마스','연말','겨울디자인','카드뉴스','스티커','아이콘','미리캔버스']},
+{title:'크리스마스 장식 요소',desc:'트리, 오너먼트, 리본, 선물상자를 한 세트처럼 제작해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','글로시 3D'],keywords:['크리스마스','트리','오너먼트','리본','선물','선물상자','산타','연말','겨울','장식','데코','파티','홀리데이','별','눈송이','성탄절','크리스마스소품','축하','이벤트','포스터','배너','카드','스티커','시즌','미리캔버스']},
+{title:'새해 다이어리 요소',desc:'달력, 체크리스트, 펜, 스티커를 활용한 계획 세우기 요소를 만들어보세요.',styles:['플랫 일러스트','아이콘형','3D 블렌더','문구 스티커'],keywords:['새해','다이어리','달력','플래너','체크리스트','펜','스티커','계획','목표','신년','일정','메모','문구','공부','업무','루틴','습관','기록','투두리스트','캘린더','정리','아이콘','카드뉴스','꾸미기','미리캔버스']},
+{title:'봄꽃 요소',desc:'벚꽃, 민들레, 제비꽃 중 하나를 선택해 봄 느낌의 단품 요소로 만들어보세요.',styles:['수채화풍','플랫 일러스트','3D 블렌더','감성 스티커'],keywords:['봄','봄꽃','벚꽃','민들레','제비꽃','꽃','식물','자연','봄소품','봄감성','파스텔','꽃잎','정원','피크닉','시즌','봄디자인','포스터','카드','축제','꽃축제','일러스트','스티커','꾸미기','감성','미리캔버스']},
+{title:'여름 과일 요소',desc:'수박, 복숭아, 레몬을 시원하고 선명한 분위기로 만들어보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','상큼한 스티커'],keywords:['여름','과일','수박','복숭아','레몬','여름과일','시원한','상큼한','주스','음료','과일주스','피크닉','휴가','바캉스','시즌','푸드','음식','컬러풀','여름디자인','포스터','메뉴판','스티커','아이콘','감성','미리캔버스']},
+{title:'여행 준비 요소',desc:'캐리어, 여권, 카메라, 선글라스를 여행 세트처럼 구성해보세요.',styles:['3D 블렌더','플랫 일러스트','아이콘형','트래블 스티커'],keywords:['여행','캐리어','여권','카메라','선글라스','여행용품','휴가','관광','해외여행','국내여행','비행기','바캉스','트립','여행준비','짐싸기','여행소품','여름휴가','지도','여행일정','포스터','카드뉴스','스티커','아이콘','감성','미리캔버스']},
+{title:'감사 카드 요소',desc:'꽃, 리본, 하트, 작은 선물 등 감사의 마음을 표현할 요소를 만들어보세요.',styles:['감성 일러스트','플랫 일러스트','3D 블렌더','수채화 스티커'],keywords:['감사','고마움','감사카드','꽃','리본','하트','선물','축하','마음','메시지','카드','기념일','어버이날','스승의날','감성','따뜻한','사랑','선물포장','꽃다발','인사','포스터','카드뉴스','스티커','꾸미기','미리캔버스']}
 ];
-
-let selected=Number(localStorage.getItem('selectedDay')||0);
-let completed=JSON.parse(localStorage.getItem('completedDays')||'[]');
 const $=id=>document.getElementById(id);
+let selected=Number(localStorage.getItem('selectedDay')||0);
+let completed=JSON.parse(localStorage.getItem('completedDaysV2')||'[]');
+let targetCounts=JSON.parse(localStorage.getItem('targetCounts')||'{}');
+let dayFiles=[]; let previewUrls=[];
 
-function render(){
- const c=challenges[selected];
- $('todayTitle').textContent=`DAY ${selected+1} · ${c.title}`;
- $('todayDesc').textContent=c.desc;
- $('styleChips').innerHTML=c.styles.map(x=>`<span class="chip">${x}</span>`).join('');
- $('keywords').textContent=c.keywords.join(', ');
- $('completeBtn').textContent=completed.includes(selected)?'✓ 완료됨':'오늘 챌린지 완료';
+function openDB(){return new Promise((resolve,reject)=>{const req=indexedDB.open('toverichChallengeDB',1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('uploads'))db.createObjectStore('uploads',{keyPath:'day'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function getFiles(day){const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction('uploads','readonly');const req=tx.objectStore('uploads').get(day);req.onsuccess=()=>resolve(req.result?.files||[]);req.onerror=()=>reject(req.error)})}
+async function setFiles(day,files){const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction('uploads','readwrite');tx.objectStore('uploads').put({day,files});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+async function getAllCounts(){const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction('uploads','readonly');const req=tx.objectStore('uploads').getAll();req.onsuccess=()=>resolve(req.result.reduce((s,x)=>s+(x.files?.length||0),0));req.onerror=()=>reject(req.error)})}
+function target(){return Math.max(1,Number(targetCounts[selected]||1))}
+function cleanupUrls(){previewUrls.forEach(u=>URL.revokeObjectURL(u));previewUrls=[]}
+async function loadDayFiles(){cleanupUrls();dayFiles=await getFiles(selected);await render()}
+async function render(){
+ const c=challenges[selected], t=target(), n=dayFiles.length;
+ $('todayTitle').textContent=`DAY ${selected+1} · ${c.title}`;$('todayDesc').textContent=c.desc;$('styleChips').innerHTML=c.styles.map(x=>`<span class="chip">${x}</span>`).join('');$('keywords').textContent=c.keywords.join(', ');
+ $('targetCount').value=t;$('targetView').textContent=t;$('uploadedCount').textContent=n;$('sideUploadCount').textContent=n;
+ $('previews').innerHTML=dayFiles.map((f,i)=>{const u=URL.createObjectURL(f);previewUrls.push(u);return `<div class="thumb"><img src="${u}" alt="업로드 이미지 ${i+1}"><button type="button" data-remove="${i}" aria-label="삭제">×</button></div>`}).join('');
+ document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=async()=>{dayFiles.splice(Number(b.dataset.remove),1);await setFiles(selected,dayFiles);if(dayFiles.length<t&&completed.includes(selected)){completed=completed.filter(x=>x!==selected);localStorage.setItem('completedDaysV2',JSON.stringify(completed))}await render()});
+ const ready=n>=t;$('requirement').className='requirement'+(ready?' ok':'');$('requirement').textContent=ready?`목표 ${t}개를 채웠습니다. 챌린지를 완료할 수 있어요! ✓`:`이미지 ${t-n}개를 더 업로드해야 완료할 수 있어요.`;
+ $('completeBtn').disabled=!ready&&!completed.includes(selected);$('completeBtn').textContent=completed.includes(selected)?'✓ 완료됨':ready?'오늘 챌린지 완료':'이미지 업로드 후 완료';
  $('days').innerHTML=challenges.map((d,i)=>`<div class="day ${completed.includes(i)?'done':''}" data-i="${i}"><div class="num">DAY ${i+1}</div><div>${d.title}</div><div class="small">${completed.includes(i)?'완료 ✓':'도전하기'}</div></div>`).join('');
- document.querySelectorAll('.day').forEach(el=>el.onclick=()=>{selected=Number(el.dataset.i);localStorage.setItem('selectedDay',selected);loadNote();render();scrollTo({top:0,behavior:'smooth'})});
- const n=completed.length;$('doneCount').textContent=n;$('progressBar').style.width=`${n*10}%`;
- $('cheer').textContent=n===10?'10일 챌린지 완주! 정말 멋져요 🎉':n>=7?'완주가 얼마 남지 않았어요!':n>=3?'좋아요! 꾸준히 쌓이고 있어요.':'첫 번째 요소부터 차근차근 시작해보세요!';
+ document.querySelectorAll('.day').forEach(el=>el.onclick=async()=>{selected=Number(el.dataset.i);localStorage.setItem('selectedDay',selected);loadNote();scrollTo({top:0,behavior:'smooth'});await loadDayFiles()});
+ const done=completed.length;$('doneCount').textContent=done;$('progressBar').style.width=`${done*10}%`;$('cheer').textContent=done===10?'10일 챌린지 완주! 정말 멋져요 🎉':done>=7?'완주가 얼마 남지 않았어요!':done>=3?'좋아요! 꾸준히 쌓이고 있어요.':'제작 이미지를 올리고 첫 챌린지를 완료해보세요!';
+ $('totalUploadCount').textContent=await getAllCounts();
 }
-$('completeBtn').onclick=()=>{completed=completed.includes(selected)?completed.filter(x=>x!==selected):[...completed,selected];localStorage.setItem('completedDays',JSON.stringify(completed));render()};
+$('imageInput').onchange=async e=>{const incoming=[...e.target.files];if(!incoming.length)return;dayFiles=[...dayFiles,...incoming];await setFiles(selected,dayFiles);e.target.value='';await render()};
+$('targetCount').onchange=async e=>{const v=Math.min(50,Math.max(1,Number(e.target.value)||1));targetCounts[selected]=v;localStorage.setItem('targetCounts',JSON.stringify(targetCounts));if(dayFiles.length<v&&completed.includes(selected)){completed=completed.filter(x=>x!==selected);localStorage.setItem('completedDaysV2',JSON.stringify(completed))}await render()};
+$('completeBtn').onclick=async()=>{const t=target();if(!completed.includes(selected)&&dayFiles.length<t){alert(`이미지를 ${t-dayFiles.length}개 더 업로드해주세요.`);return}completed=completed.includes(selected)?completed.filter(x=>x!==selected):[...completed,selected];localStorage.setItem('completedDaysV2',JSON.stringify(completed));await render()};
 $('copyBtn').onclick=async()=>{await navigator.clipboard.writeText(challenges[selected].keywords.join(', '));$('copyBtn').textContent='복사 완료!';setTimeout(()=>$('copyBtn').textContent='키워드 복사',1200)};
-$('nameInput').value=localStorage.getItem('participantName')||'';
-$('nameInput').oninput=e=>localStorage.setItem('participantName',e.target.value);
-function loadNote(){$('note').value=localStorage.getItem(`note-${selected}`)||''}
-$('saveNote').onclick=()=>{localStorage.setItem(`note-${selected}`,$('note').value);$('saveNote').textContent='저장 완료!';setTimeout(()=>$('saveNote').textContent='메모 저장',1200)};
-loadNote();render();
+$('nameInput').value=localStorage.getItem('participantName')||'';$('nameInput').oninput=e=>localStorage.setItem('participantName',e.target.value);
+function loadNote(){$('note').value=localStorage.getItem(`note-${selected}`)||''}$('saveNote').onclick=()=>{localStorage.setItem(`note-${selected}`,$('note').value);$('saveNote').textContent='저장 완료!';setTimeout(()=>$('saveNote').textContent='메모 저장',1200)};
+loadNote();loadDayFiles();
 </script>
 </body>
 </html>
