@@ -1,0 +1,1 @@
+window.APP_CONFIG={SUPABASE_URL:'https://mymvvqysqdpzgcpviaap.supabase.co',SUPABASE_KEY:'sb_publishable_I_sz8meofTwhNNCnUhAmSQ_jdylbvgX'};
