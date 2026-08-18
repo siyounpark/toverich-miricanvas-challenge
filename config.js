@@ -1,1 +1,2 @@
 window.APP_CONFIG={SUPABASE_URL:'https://mymvvqysqdpzgcpviaap.supabase.co',SUPABASE_KEY:'sb_publishable_I_sz8meofTwhNNCnUhAmSQ_jdylbvgX'};
+(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='./theme.css?v=20260818-mobile-purple';document.head.appendChild(l);})();
